@@ -13,30 +13,36 @@ class Directory extends React.Component{
             sections:[
                 {
                     title: 'Hat' , 
-                    imgUrl: 'https://www.ynotmade.com/shop/products/basicshats/galleryimages/basicshats_6.jpg' , 
-                    id:  1
+                    imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+                    id:  1,
+                    linkUrl: 'hats'
                 },
                 {
                     title: 'Jacket' , 
-                    imgUrl: 'https://www.fashionbeans.com/wp-content/uploads/2017/08/leatherguidemain5.jpg' , 
-                    id:  2
+                    imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+                    id:  2,
+                    linkUrl: ''
+
                 },
                 {
                     title: 'Sneakers' , 
-                    imgUrl: 'https://images.unsplash.com/photo-1463080197951-ea6abbd2bb9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hvZSUyMG1vZGVsfGVufDB8fDB8fA%3D%3D&w=1000&q=80' ,   
-                    id:  3
+                    imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+                    id:  3,
+                    linkUrl: ''
                 },
                 {
                     title: 'Womens' , 
-                    imgUrl: 'https://d26oc3sg82pgk3.cloudfront.net/files/media/edit/image/45912/article_featured%403x.jpg', 
+                    imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
                     size:'large',
-                    id:  4
+                    id:  4,
+                    linkUrl: ''
                 },
                 {
                     title: 'Mens' , 
-                    imgUrl: 'https://modelcentral.co/wp-content/uploads/2019/04/model_central_0968.jpg' , 
+                    imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
                     size:'large',
-                    id:  5
+                    id:  5,
+                    linkUrl: ''
                 },
 
 
@@ -48,8 +54,14 @@ class Directory extends React.Component{
     render(){
 
         return(
-            <div className="directory-menu">
-                {this.state.sections.map(({title , imgUrl , id , size}) =>(<MenuItem key={id} title={title} imageUrl={imgUrl} size={size} />))}
+            // <div className="directory-menu">
+            //     {this.state.sections.map(({title , imgUrl , id , size}) =>(<MenuItem key={id} title={title} imageUrl={imgUrl} size={size} />))}
+            // </div>
+
+            <div className='directory-menu'>
+            {this.state.sections.map(({ id, ...otherSectionProps }) => (
+            <MenuItem key={id} {...otherSectionProps} />
+            ))}
             </div>
         );
 
